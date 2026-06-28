@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Creativ'Agency — Visibilité locale sur Google pour les commerces de proximité</title>
+  <meta name="description" content="Creativ'Agency accompagne artisans, commerçants et indépendants pour mieux se positionner sur Google Maps : optimisation de la fiche Google Business Profile, SEO local, collecte et gestion des avis clients." />
+  <style>
+    :root {
+      --bg: #0f1419;
+      --surface: #171e26;
+      --surface-2: #1e2731;
+      --text: #eef2f6;
+      --muted: #9fb0c0;
+      --accent: #18b582;
+      --accent-soft: rgba(24, 181, 130, 0.12);
+      --border: rgba(255, 255, 255, 0.08);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+    a { color: inherit; text-decoration: none; }
+
+    header {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(15, 20, 25, 0.85);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+    .logo { font-weight: 700; font-size: 1.15rem; letter-spacing: -0.02em; }
+    .logo span { color: var(--accent); }
+    .nav-cta {
+      background: var(--accent); color: #04130d; font-weight: 600;
+      padding: 9px 18px; border-radius: 10px; font-size: 0.92rem;
+      transition: transform 0.15s ease, background 0.15s ease;
+    }
+    .nav-cta:hover { transform: translateY(-1px); }
+
+    .hero { padding: 96px 0 72px; text-align: center; }
+    .badge {
+      display: inline-block; background: var(--accent-soft); color: var(--accent);
+      font-size: 0.82rem; font-weight: 600; padding: 6px 14px; border-radius: 999px;
+      margin-bottom: 26px; border: 1px solid rgba(24, 181, 130, 0.25);
+    }
+    .hero h1 {
+      font-size: clamp(2.1rem, 5vw, 3.4rem); line-height: 1.1;
+      letter-spacing: -0.03em; font-weight: 800; margin-bottom: 22px;
+    }
+    .hero h1 .accent { color: var(--accent); }
+    .hero p {
+      font-size: clamp(1.05rem, 2vw, 1.25rem); color: var(--muted);
+      max-width: 680px; margin: 0 auto 36px;
+    }
+    .hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--accent); color: #04130d; font-weight: 700;
+      padding: 14px 28px; border-radius: 12px; font-size: 1rem;
+      transition: transform 0.15s ease;
+    }
+    .btn-primary:hover { transform: translateY(-2px); }
+    .btn-ghost {
+      border: 1px solid var(--border); color: var(--text); font-weight: 600;
+      padding: 14px 28px; border-radius: 12px; font-size: 1rem;
+    }
+
+    section { padding: 64px 0; }
+    .section-head { text-align: center; max-width: 640px; margin: 0 auto 48px; }
+    .section-head h2 {
+      font-size: clamp(1.7rem, 3.5vw, 2.3rem); letter-spacing: -0.02em;
+      font-weight: 800; margin-bottom: 14px;
+    }
+    .section-head p { color: var(--muted); font-size: 1.05rem; }
+
+    .goal { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .goal-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .stat { text-align: center; padding: 22px 14px; }
+    .stat .big { font-size: 2rem; font-weight: 800; color: var(--accent); }
+    .stat .lbl { color: var(--muted); font-size: 0.95rem; margin-top: 6px; }
+
+    .cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 16px; padding: 28px;
+      transition: transform 0.18s ease, border-color 0.18s ease;
+    }
+    .card:hover { transform: translateY(-3px); border-color: rgba(24, 181, 130, 0.4); }
+    .card .ico {
+      width: 44px; height: 44px; border-radius: 11px; background: var(--accent-soft);
+      display: flex; align-items: center; justify-content: center; font-size: 1.3rem;
+      margin-bottom: 16px;
+    }
+    .card h3 { font-size: 1.18rem; margin-bottom: 8px; letter-spacing: -0.01em; }
+    .card p { color: var(--muted); font-size: 0.97rem; }
+
+    .audience { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .tags { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 8px; }
+    .tag {
+      background: var(--surface-2); border: 1px solid var(--border);
+      padding: 10px 18px; border-radius: 999px; font-size: 0.95rem; color: var(--text);
+    }
+
+    .pledge { max-width: 760px; margin: 0 auto; text-align: center; }
+    .pledge .quote {
+      font-size: clamp(1.2rem, 2.6vw, 1.6rem); font-weight: 600;
+      letter-spacing: -0.01em; line-height: 1.45;
+    }
+    .pledge .quote .accent { color: var(--accent); }
+
+    .contact { text-align: center; }
+    .contact .mail {
+      display: inline-block; margin-top: 10px; font-size: 1.3rem; font-weight: 700;
+      color: var(--accent);
+    }
+
+    footer {
+      border-top: 1px solid var(--border); padding: 32px 0;
+      color: var(--muted); font-size: 0.9rem; text-align: center;
+    }
+
+    @media (max-width: 760px) {
+      .cards { grid-template-columns: 1fr; }
+      .goal-grid { grid-template-columns: repeat(2, 1fr); }
+      .hero { padding: 64px 0 48px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <div class="logo">Creativ<span>'</span>Agency</div>
+      <a href="#contact" class="nav-cta">Nous contacter</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <span class="badge">Visibilité locale sur Google</span>
+        <h1>Propulsez votre commerce dans le <span class="accent">TOP 3</span> de Google Maps</h1>
+        <p>
+          Nous accompagnons les artisans, commerçants et indépendants à mieux se positionner
+          localement grâce à une gestion stratégique de leur fiche Google Business Profile.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn-primary">Discuter de votre fiche</a>
+          <a href="#services" class="btn-ghost">Découvrir nos services</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="goal">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Là où tout se joue</h2>
+          <p>Le référencement local décide qui appelle, qui pousse la porte et qui demande un devis. Notre objectif : vous y placer en tête.</p>
+        </div>
+        <div class="goal-grid">
+          <div class="stat"><div class="big">+ d'appels</div><div class="lbl">depuis la recherche locale</div></div>
+          <div class="stat"><div class="big">+ de visites</div><div class="lbl">en boutique</div></div>
+          <div class="stat"><div class="big">+ de devis</div><div class="lbl">et de commandes</div></div>
+          <div class="stat"><div class="big">+ de CA</div><div class="lbl">au final</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Ce que nous faisons</h2>
+          <p>Une approche personnalisée, sans vous imposer un site web complexe.</p>
+        </div>
+        <div class="cards">
+          <div class="card">
+            <div class="ico">📍</div>
+            <h3>Optimisation de la fiche Google</h3>
+            <p>Mise en place et optimisation technique complète de votre fiche Google Business Profile pour maximiser votre positionnement local.</p>
+          </div>
+          <div class="card">
+            <div class="ico">🔍</div>
+            <h3>Référencement local (SEO)</h3>
+            <p>Rédaction de contenus optimisés pour le SEO local afin de vous faire remonter sur les recherches qui comptent dans votre zone.</p>
+          </div>
+          <div class="card">
+            <div class="ico">⭐</div>
+            <h3>Collecte &amp; gestion des avis</h3>
+            <p>Stratégie de collecte d'avis clients et gestion des réponses pour bâtir une réputation solide et rassurante sur Google.</p>
+          </div>
+          <div class="card">
+            <div class="ico">🗓️</div>
+            <h3>Publications régulières</h3>
+            <p>Animation continue de votre fiche (actualités, photos, offres) pour la garder vivante et attractive aux yeux de Google et des clients.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="audience">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Pour qui&nbsp;?</h2>
+          <p>Les professionnels de proximité qui veulent gagner en visibilité, simplement.</p>
+        </div>
+        <div class="tags">
+          <span class="tag">Restaurateurs</span>
+          <span class="tag">Paysagistes</span>
+          <span class="tag">Réparateurs</span>
+          <span class="tag">Coiffeurs</span>
+          <span class="tag">Artisans</span>
+          <span class="tag">Commerçants</span>
+          <span class="tag">Indépendants</span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap pledge">
+        <span class="badge">Notre engagement</span>
+        <p class="quote">
+          Par souci de cohérence, nous ne proposons <span class="accent">jamais</span> ce service à
+          deux concurrents directs dans une même ville.
+        </p>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="wrap">
+        <div class="section-head" style="margin-bottom: 20px;">
+          <h2>Parlons de votre visibilité</h2>
+          <p>Une question, un projet&nbsp;? Écrivez-nous, nous répondons rapidement.</p>
+        </div>
+        <a href="mailto:creativagencyfr@gmail.com" class="mail">creativagencyfr@gmail.com</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      © <span id="year"></span> Creativ'Agency — Gestion de fiches Google Business Profile pour les commerces de proximité, en France.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
