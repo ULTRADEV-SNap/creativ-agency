@@ -151,6 +151,18 @@
     .card h3 { font-family: var(--font-head); font-size: 1.22rem; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 8px; }
     .card p { color: var(--muted); font-size: 0.98rem; }
 
+    /* À propos / fondateur */
+    .about-grid { display: grid; grid-template-columns: 320px 1fr; gap: 56px; align-items: center; max-width: 980px; margin: 0 auto; }
+    .about-photo { width: 100%; max-width: 320px; height: auto; display: block; margin: 0 auto; }
+    .about-text .eyebrow { margin-bottom: 20px; }
+    .about-text h2 {
+      font-family: var(--font-head); font-weight: 800;
+      font-size: clamp(1.7rem, 3.4vw, 2.4rem); letter-spacing: -0.03em;
+      line-height: 1.12; margin-bottom: 18px;
+    }
+    .about-text p { color: var(--muted); font-size: 1.06rem; margin-bottom: 14px; }
+    .about-text p strong { color: var(--ink); font-weight: 700; }
+
     /* Audience */
     .audience { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
     .tags { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
@@ -181,6 +193,9 @@
     @media (max-width: 760px) {
       .cards { grid-template-columns: 1fr; }
       .goal-grid { grid-template-columns: repeat(2, 1fr); }
+      .about-grid { grid-template-columns: 1fr; gap: 32px; text-align: center; max-width: 460px; }
+      .about-photo { max-width: 240px; }
+      .about-text .eyebrow { margin-bottom: 16px; }
       .hero { padding: 72px 0 56px; }
     }
   </style>
@@ -260,6 +275,28 @@
             <div class="ico">🗓️</div>
             <h3>Publications régulières</h3>
             <p>Animation continue de votre fiche (actualités, photos, offres) pour la garder vivante et attractive aux yeux de Google et des clients.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="apropos">
+      <div class="wrap">
+        <div class="about-grid">
+          <img class="about-photo" src="founder.png" width="800" height="800"
+               alt="Le fondateur de Creativ'Agency, spécialiste de la visibilité locale sur Google" />
+          <div class="about-text">
+            <span class="eyebrow">Votre interlocuteur unique</span>
+            <h2>Un visage, pas un service client anonyme</h2>
+            <p>
+              Derrière Creativ'Agency, <strong>une seule personne à votre écoute</strong>,
+              du premier échange jusqu'aux résultats. Quelqu'un qui prend le temps de
+              comprendre votre commerce, votre quartier et vos objectifs.
+            </p>
+            <p>
+              Spécialiste de la visibilité locale, je m'occupe <strong>personnellement</strong>
+              de votre fiche Google pour la faire monter — durablement, et sans jargon.
+            </p>
           </div>
         </div>
       </div>
